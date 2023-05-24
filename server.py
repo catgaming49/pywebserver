@@ -59,8 +59,10 @@ sock.listen()
 
 while True:
     conn, addr = sock.accept()
+    if config['DEBUG_MESSAGES']: print(f'[CONNECTION] new connection from {addr}');
     data = conn.recv(1024).decode()
     if data:
+        if config['DEBUG_MESSAGES']: print(f'[CONNECTION] new request from {addr} data\n{data}');
         request_line = data.split('\n')[0]
         request_path = request_line.split()[1]
         if request_path == '/':
