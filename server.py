@@ -2,6 +2,7 @@ import socket
 import json
 import os
 
+CONFIG_FILE = "config.json"
 def read_file(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -50,7 +51,6 @@ def serve_file(conn, file_path):
             response = format_http(http_res)
             conn.sendall(response)
 
-CONFIG_FILE = "config.json"
 config = load_config(CONFIG_FILE)
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

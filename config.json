@@ -1,8 +1,7 @@
 {
   "IP" : "192.168.86.82",
   "PORT": 8080,
-  "SERVER_ROOT": "server_root",
-  "CONFIG_FILE": "config.json",
+  "SERVER_ROOT": "www",
   "DEFAULT_INDEX_FILE": "index.html"
 }
   
