@@ -39,7 +39,7 @@ def serve_file(conn, file_path):
         response = format_http(http_res, encoded_content)
         conn.sendall(response)
     except FileNotFoundError:
-        if file_path.endswith("/"):
+        if config['DEFAULT_INDEX_FILE'] and file_path.endswith("/"):
             default_file_path = os.path.join(file_path, config['DEFAULT_INDEX_FILE'])
             serve_file(conn, default_file_path)
         else:

@@ -1,0 +1,5 @@
+"DEBUG_MESSAGES" : true or false // Should connection messages be displayed in the interpreter
+"IP" : "ip_here" // The ip which the server listens to, put your devices IP adress here
+"PORT": 80 // The port which the server listens to, http default is 80
+"SERVER_ROOT": "server_root" // From where files can be accessed, any file inside here can be viewed by website visitors
+"DEFAULT_INDEX_FILE": "index.html" // What should the default file be when the website is accessed from root, set this to false if there are no index files

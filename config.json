@@ -1,6 +1,6 @@
 {
   "DEBUG_MESSAGES" : true,
-  "IP" : "192.168.86.82",
+  "IP" : "",
   "PORT": 8080,
   "SERVER_ROOT": "www",
   "DEFAULT_INDEX_FILE": "index.html"
