@@ -1,6 +1,7 @@
 import socket
 import json
 import os
+from textwrap import indent
 
 CONFIG_FILE = "config.json"
 def read_file(file_path):
@@ -52,17 +53,19 @@ def serve_file(conn, file_path):
             conn.sendall(response)
 
 config = load_config(CONFIG_FILE)
+if config['DEBUG_MESSAGES']: print(f'[STARTUP] config loaded\n{read_file(CONFIG_FILE)}');
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 sock.bind((config['IP'], config['PORT']))
 sock.listen()
+if config['DEBUG_MESSAGES']: print(f'[STARTUP] Listening at {config["IP"]} Port {config["PORT"]}');
 
 while True:
     conn, addr = sock.accept()
-    if config['DEBUG_MESSAGES']: print(f'[CONNECTION] new connection from {addr}');
+    if config['DEBUG_MESSAGES']: print(f'[CONNECTION] New connection from {addr}');
     data = conn.recv(1024).decode()
     if data:
-        if config['DEBUG_MESSAGES']: print(f'[CONNECTION] new request from {addr} data\n{data}');
+        if config['DEBUG_MESSAGES']: formated_data = indent(data, '\t'); formated_data = "{\n\n%s}" % formated_data;print(f'[CONNECTION] New request from {addr} \n{formated_data}');
         request_line = data.split('\n')[0]
         request_path = request_line.split()[1]
         if request_path == '/':
