@@ -3,7 +3,4 @@ Just a simple HTTP server made in Python.
 Make sure to read the documentation.
 This was just a little side project though I might make new additions later on such as SSL config.
 
-Support:\n
-HTML = Yes\n
-JS = Yes\n
-PHP = No
+Supported: HTML, JS
