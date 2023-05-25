@@ -34,7 +34,7 @@ def serve_file(conn, file_path):
         encoded_content = content.encode('utf-8')
         http_res = {
             'Response': 'HTTP/1.1 200 OK',
-            'Content-Type': 'text/html',
+            'Content-Type': get_file_type(file_path),
             'Content-Length': str(len(encoded_content)),
         }
         response = format_http(http_res, encoded_content)
@@ -51,6 +51,23 @@ def serve_file(conn, file_path):
             }
             response = format_http(http_res)
             conn.sendall(response)
+
+def get_file_type(filename:str)->str:
+    file_types:dict = config['FILE_TYPES']
+    extension:str = os.path.splitext(filename)[1]
+    if extension == "":
+        if not config['ALLOW_NOEXTENSION']:
+            raise FileNotFoundError
+        elif "." in file_types:
+            return file_types['.']
+        else:
+            raise FileNotFoundError
+    elif extension in file_types.keys():
+        return file_types[extension]
+    elif config['DEFAULT_CONTENT_TYPE']:
+        return config['DEFAULT_CONTENT_TYPE']
+    else:
+        raise FileNotFoundError
 
 config = load_config(CONFIG_FILE)
 if config['DEBUG_MESSAGES']: print(f'[STARTUP] config loaded\n{read_file(CONFIG_FILE)}');
