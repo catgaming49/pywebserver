@@ -1,0 +1,11 @@
+[Unit]
+Description=Service for python http server 
+
+
+[Service]
+WorkingDirectory=/home/julsvor/pywebserver
+ExecStart=/usr/bin/python3 /home/julsvor/pywebserver/server.py
+#Restart=always
+
+[Install]
+WantedBy=multi-user.target
