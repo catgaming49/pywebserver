@@ -3,8 +3,8 @@ Description=Service for python http server
 
 
 [Service]
-WorkingDirectory=/home/julsvor/pywebserver
-ExecStart=/usr/bin/python3 /home/julsvor/pywebserver/server.py
+WorkingDirectory=/etc/py-http-serv
+ExecStart=/usr/bin/python3 /etc/py-http-serv/server.py
 #Restart=always
 
 [Install]

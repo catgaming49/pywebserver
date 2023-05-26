@@ -2,7 +2,7 @@
 
 "IP" : "ip_here" // The ip which the server listens to, put your devices IP adress here
 
-"PORT": 80 // The port which the server listens to, http default is 80
+"PORT": 80 // The port which the server listens to, http default is 80, Does not run port below 1024 on Windows
 
 "SERVER_ROOT": "server_root" // From where files can be accessed, any file inside here can be viewed by website visitors
 
@@ -11,6 +11,15 @@
 "DEFAULT_CONTENT_TYPE" : "text/plain" // What should the content be served as if the file extension was not found, set to false to give a 404 when no content type is found for 
 the file
 
-"ALLOW_NOEXTENSION" : false, // Wether or not file without an extension are allowed to be server
+"ALLOW_NOEXTENSION" : false, // Whether or not files without an extension are allowed to be served. If false, files with no extension gives a 404 error
 
 "FILE_TYPES" : {".html" : "text/html"} // Extension mappings to content serving format in key value pairs, include the dot. If files with no extensiona are allowed then they can be specified with {"." : "text/plain"}
+
+To install the linux service check out linux_service_setup, Run SETUP.sh and REMOVE.sh as sudo unless your user has sufficient permissions.
+
+To start server : sudo systemctl start mypython-server
+To stop server : sudo systemctl start mypython-server
+To restart server : sudo systemctl restart mypython-server
+
+To enable server at startup : sudo systemctl enable mypython-server
+To disable server at startup : sudo systemctl disable mypython-server [Default]
