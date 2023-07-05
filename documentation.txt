@@ -21,5 +21,7 @@ To start server : sudo systemctl start mypython-server
 To stop server : sudo systemctl start mypython-server
 To restart server : sudo systemctl restart mypython-server
 
+to change the name of the service simply rename it and put it int /etc/systemd/system/
+
 To enable server at startup : sudo systemctl enable mypython-server
 To disable server at startup : sudo systemctl disable mypython-server [Default]
