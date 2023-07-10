@@ -1,0 +1,11 @@
+{
+  "DEBUG_MESSAGES" : true,
+  "IP" : "",
+  "PORT": 8080,
+  "SERVER_ROOT": "www",
+  "DEFAULT_INDEX_FILE": "index.html",
+  "DEFAULT_CONTENT_TYPE" : "text/plain",
+  "ALLOW_NOEXTENSION" : false,
+  "FILE_TYPES" : {".html" : "text/html", ".txt" : "text/plain", "." : "text/plain"}
+}
+  
